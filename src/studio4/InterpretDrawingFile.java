@@ -19,6 +19,17 @@ public class InterpretDrawingFile {
 		chooser.showOpenDialog(null);
 		File f = new File(chooser.getSelectedFile().getPath());
 		Scanner in = new Scanner(f); //making Scanner with a File
-		
+		String shapeName = in.next();
+		if (shapeName.equals("rectangle")) {
+			//We should assign variables to all of the in.next* values. I got lazy and only did one
+			int rgbRed = in.nextInt();
+			StdDraw.setPenColor(rgbRed, in.nextInt(), in.nextInt());
+			if(in.nextBoolean()) {
+			StdDraw.filledRectangle(in.nextDouble(), in.nextDouble(), in.nextDouble(), in.nextDouble());
+			}
+			else {
+			StdDraw.rectangle(in.nextDouble(), in.nextDouble(), in.nextDouble(), in.nextDouble());
+			}
+		}
 	}
 }
